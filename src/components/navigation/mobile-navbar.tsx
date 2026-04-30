@@ -14,15 +14,11 @@ import {
     SheetTrigger
 } from "@/components/ui/sheet";
 import { cn, NAV_LINKS } from "@/utils";
-import { useAuth } from "@clerk/nextjs";
-import { LucideIcon, Menu, X } from "lucide-react";
+import { ChevronDown, LucideIcon, Menu, X } from "lucide-react";
 import Link from "next/link";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const MobileNavbar = () => {
-
-    const { isSignedIn, signOut } = useAuth();
-
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const handleClose = () => {
@@ -30,52 +26,37 @@ const MobileNavbar = () => {
     };
 
     return (
-        <div className="flex lg:hidden items-center justify-end">
+        <div className="flex lg:hidden items-center gap-2">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
                 <SheetTrigger asChild>
-                    <Button size="icon" variant="ghost">
-                        <Menu className="w-5 h-5" />
+                    <Button size="icon" variant="primary" className="rounded-full shadow-sm">
+                        <Menu className="h-5 w-5" />
                     </Button>
                 </SheetTrigger>
-                <SheetContent className="w-screen">
-                    <SheetClose asChild className="absolute top-3 right-5 bg-background z-20 flex items-center justify-center">
-                        <Button size="icon" variant="ghost" className="text-neutral-600">
-                            <X className="w-5 h-5" />
+                <SheetContent className="w-[92vw] rounded-l-3xl border-l border-border/70 bg-white px-5 pt-5">
+                    <SheetClose asChild className="absolute right-4 top-4 bg-background z-20 flex items-center justify-center">
+                        <Button size="icon" variant="ghost" className="rounded-full text-foreground/70">
+                            <X className="h-5 w-5" />
                         </Button>
                     </SheetClose>
-                    <div className="flex flex-col items-start w-full py-2 mt-10">
-                        <div className="flex items-center justify-evenly w-full space-x-2">
-                            {isSignedIn ? (
-                                <Link href="/dashboard" className={buttonVariants({ variant: "outline", className: "w-full" })}>
-                                    Dashboard
-                                </Link>
-                            ) : (
-                                <>
-                                    <Link href="/auth/sign-in" className={buttonVariants({ variant: "outline", className: "w-full" })}>
-                                        Sign In
-                                    </Link>
-                                    <Link href="/auth/sign-up" className={buttonVariants({ className: "w-full" })}>
-                                        Sign Up
-                                    </Link>
-                                </>
-                            )}
-                        </div>
-                        <ul className="flex flex-col items-start w-full mt-6">
-                            <Accordion type="single" collapsible className="!w-full">
+                    <div className="mt-10 flex flex-col gap-4">
+                        <Link href="/contact" className={buttonVariants({ className: "w-full rounded-md" })}>
+                            Get Started
+                        </Link>
+                        <ul className="mt-4">
+                            <Accordion type="single" collapsible className="w-full">
                                 {NAV_LINKS.map((link) => (
                                     <AccordionItem key={link.title} value={link.title} className="last:border-none">
                                         {link.menu ? (
                                             <>
-                                                <AccordionTrigger>
-                                                    {link.title}
+                                                <AccordionTrigger className="py-4 text-foreground">
+                                                    <span className="flex items-center gap-1.5">
+                                                        {link.title}
+                                                        <ChevronDown className="h-3.5 w-3.5" />
+                                                    </span>
                                                 </AccordionTrigger>
                                                 <AccordionContent>
-                                                    <ul
-                                                        onClick={handleClose}
-                                                        className={cn(
-                                                            "w-full",
-                                                        )}
-                                                    >
+                                                    <ul onClick={handleClose} className={cn("w-full")}>
                                                         {link.menu.map((menuItem) => (
                                                             <ListItem key={menuItem.title} title={menuItem.title} href={menuItem.href} icon={menuItem.icon}>
                                                                 {menuItem.tagline}
@@ -88,7 +69,7 @@ const MobileNavbar = () => {
                                             <Link
                                                 href={link.href}
                                                 onClick={handleClose}
-                                                className="flex items-center w-full py-4 font-medium text-muted-foreground hover:text-foreground"
+                                                className="flex items-center w-full py-4 font-medium text-foreground/70 hover:text-foreground"
                                             >
                                                 <span>{link.title}</span>
                                             </Link>
@@ -101,7 +82,7 @@ const MobileNavbar = () => {
                 </SheetContent>
             </Sheet>
         </div>
-    )
+    );
 };
 
 const ListItem = React.forwardRef<
@@ -114,13 +95,13 @@ const ListItem = React.forwardRef<
                 href={href!}
                 ref={ref}
                 className={cn(
-                    "block select-none space-y-1 rounded-lg p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+                    "block select-none space-y-1 rounded-xl p-3 leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-foreground focus:bg-muted focus:text-foreground",
                     className
                 )}
                 {...props}
             >
                 <div className="flex items-center space-x-2 text-foreground">
-                    <Icon className="h-4 w-4" />
+                    <Icon className="h-4 w-4 text-foreground/70" />
                     <h6 className="text-sm !leading-none">
                         {title}
                     </h6>
@@ -130,8 +111,8 @@ const ListItem = React.forwardRef<
                 </p>
             </Link>
         </li>
-    )
-})
-ListItem.displayName = "ListItem"
+    );
+});
+ListItem.displayName = "ListItem";
 
-export default MobileNavbar
+export default MobileNavbar;

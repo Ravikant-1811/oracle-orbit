@@ -53,10 +53,6 @@ To run Linkify locally, follow these steps:
     NEXT_PUBLIC_APP_DOMAIN=
     NEXT_PUBLIC_APP_NAME=
 
-    # clerk
-    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
-    CLERK_SECRET_KEY=
-
     # database
     DATABASE_URL=
     ```

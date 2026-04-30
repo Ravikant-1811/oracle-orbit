@@ -1,6 +1,7 @@
 "use client";
 
 import { buttonVariants } from "@/components/ui/button";
+import Logo from "@/components/ui/logo";
 import {
     NavigationMenu,
     NavigationMenuContent,
@@ -8,140 +9,104 @@ import {
     NavigationMenuLink,
     NavigationMenuList,
     NavigationMenuTrigger,
-    navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { cn, NAV_LINKS } from "@/utils";
-import { useClerk } from "@clerk/nextjs";
-import { LucideIcon, ZapIcon } from "lucide-react";
+import { ZapIcon } from "lucide-react";
 import Link from "next/link";
-import React, { useEffect, useState } from 'react';
+import React from "react";
+import AnimationContainer from "../global/animation-container";
 import MaxWidthWrapper from "../global/max-width-wrapper";
 import MobileNavbar from "./mobile-navbar";
-import AnimationContainer from "../global/animation-container";
 
 const Navbar = () => {
-
-    const { user } = useClerk();
-
-    const [scroll, setScroll] = useState(false);
-
-    const handleScroll = () => {
-        if (window.scrollY > 8) {
-            setScroll(true);
-        } else {
-            setScroll(false);
-        }
-    };
-
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
-
     return (
-        <header className={cn(
-            "sticky top-0 inset-x-0 h-14 w-full border-b border-transparent z-[99999] select-none",
-            scroll && "border-background/80 bg-background/40 backdrop-blur-md"
-        )}>
-            <AnimationContainer reverse delay={0.1} className="size-full">
-                <MaxWidthWrapper className="flex items-center justify-between">
-                    <div className="flex items-center space-x-12">
-                        <Link href="/#home">
-                            <span className="text-lg font-bold font-heading !leading-none">
-                                Linkify
-                            </span>
-                        </Link>
+        <header className="sticky top-0 z-[99999] w-full pt-4">
+            <AnimationContainer reverse delay={0.08} className="size-full">
+                <MaxWidthWrapper className="flex items-center justify-center">
+                    <div className="w-full max-w-6xl rounded-full border border-border/70 bg-white/85 px-3 py-3 shadow-[0_18px_60px_-20px_rgba(15,23,42,0.18)] backdrop-blur-xl">
+                        <div className="flex items-center justify-between gap-4">
+                            <Link href="/#home" className="shrink-0">
+                                <Logo variant="full" className="h-8 w-auto" />
+                            </Link>
 
-                        <NavigationMenu className="hidden lg:flex">
-                            <NavigationMenuList>
+                            <NavigationMenu className="hidden lg:flex">
+                                <NavigationMenuList className="gap-1">
                                 {NAV_LINKS.map((link) => (
                                     <NavigationMenuItem key={link.title}>
                                         {link.menu ? (
-                                            <>
-                                                <NavigationMenuTrigger>{link.title}</NavigationMenuTrigger>
-                                                <NavigationMenuContent>
-                                                    <ul className={cn(
-                                                        "grid gap-1 p-4 md:w-[400px] lg:w-[500px] rounded-xl",
-                                                        link.title === "Features" ? "lg:grid-cols-[.75fr_1fr]" : "lg:grid-cols-2"
+                                                <>
+                                                    <NavigationMenuTrigger className="h-10 rounded-full bg-transparent px-4 text-sm font-medium text-foreground/70 hover:bg-black/5 hover:text-foreground">
+                                                        {link.title}
+                                                    </NavigationMenuTrigger>
+                                                    <NavigationMenuContent>
+                                                        <ul className={cn(
+                                                            "grid gap-1 rounded-2xl border border-border/70 bg-white p-4 shadow-xl md:w-[420px] lg:w-[560px]",
+                                                            link.title === "Services" ? "lg:grid-cols-[.85fr_1fr]" : "lg:grid-cols-2"
+                                                        )}>
+                                                            {link.title === "Services" && (
+                                                                <li className="row-span-4 pr-2 relative rounded-xl overflow-hidden">
+                                                                    <div className="absolute inset-0 !z-10 h-full w-[calc(100%-10px)] bg-[linear-gradient(to_right,rgba(15,23,42,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.04)_1px,transparent_1px)] bg-[size:1rem_1rem]"></div>
+                                                                    <NavigationMenuLink asChild className="z-20 relative">
+                                                                        <Link
+                                                                            href="/"
+                                                                            className="flex h-full w-full select-none flex-col justify-end rounded-xl bg-gradient-to-b from-muted/40 to-muted p-4 no-underline outline-none focus:shadow-md"
+                                                                        >
+                                                                            <h6 className="mb-2 mt-4 text-lg font-semibold text-foreground">
+                                                                                All Features
+                                                                            </h6>
+                                                                            <p className="text-sm leading-tight text-muted-foreground">
+                                                                                Manage links, track performance, and more.
+                                                                            </p>
+                                                                        </Link>
+                                                                    </NavigationMenuLink>
+                                                                </li>
+                                                            )}
+                                                            {link.menu.map((menuItem) => (
+                                                                <ListItem
+                                                                    key={menuItem.title}
+                                                                    title={menuItem.title}
+                                                                    href={menuItem.href}
+                                                                    icon={menuItem.icon}
+                                                                >
+                                                                    {menuItem.tagline}
+                                                                </ListItem>
+                                                            ))}
+                                                        </ul>
+                                                    </NavigationMenuContent>
+                                                </>
+                                            ) : (
+                                                <Link href={link.href} legacyBehavior passHref>
+                                                    <NavigationMenuLink className={cn(
+                                                        "inline-flex h-10 items-center justify-center rounded-full px-4 text-sm font-medium text-foreground/70 transition-colors hover:bg-black/5 hover:text-foreground",
                                                     )}>
-                                                        {link.title === "Features" && (
-                                                            <li className="row-span-4 pr-2 relative rounded-lg overflow-hidden">
-                                                                <div className="absolute inset-0 !z-10 h-full w-[calc(100%-10px)] bg-[linear-gradient(to_right,rgb(38,38,38,0.5)_1px,transparent_1px),linear-gradient(to_bottom,rgb(38,38,38,0.5)_1px,transparent_1px)] bg-[size:1rem_1rem]"></div>
-                                                                <NavigationMenuLink asChild className="z-20 relative">
-                                                                    <Link
-                                                                        href="/"
-                                                                        className="flex h-full w-full select-none flex-col justify-end rounded-lg bg-gradient-to-b from-muted/50 to-muted p-4 no-underline outline-none focus:shadow-md"
-                                                                    >
-                                                                        <h6 className="mb-2 mt-4 text-lg font-medium">
-                                                                            All Features
-                                                                        </h6>
-                                                                        <p className="text-sm leading-tight text-muted-foreground">
-                                                                            Manage links, track performance, and more.
-                                                                        </p>
-                                                                    </Link>
-                                                                </NavigationMenuLink>
-                                                            </li>
-                                                        )}
-                                                        {link.menu.map((menuItem) => (
-                                                            <ListItem
-                                                                key={menuItem.title}
-                                                                title={menuItem.title}
-                                                                href={menuItem.href}
-                                                                icon={menuItem.icon}
-                                                            >
-                                                                {menuItem.tagline}
-                                                            </ListItem>
-                                                        ))}
-                                                    </ul>
-                                                </NavigationMenuContent>
-                                            </>
-                                        ) : (
-                                            <Link href={link.href} legacyBehavior passHref>
-                                                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                                    {link.title}
-                                                </NavigationMenuLink>
-                                            </Link>
-                                        )}
-                                    </NavigationMenuItem>
-                                ))}
-                            </NavigationMenuList>
-                        </NavigationMenu>
+                                                        {link.title}
+                                                    </NavigationMenuLink>
+                                                </Link>
+                                            )}
+                                        </NavigationMenuItem>
+                                    ))}
+                                </NavigationMenuList>
+                            </NavigationMenu>
 
-                    </div>
-
-                    <div className="hidden lg:flex items-center">
-                        {user ? (
-                            <div className="flex items-center">
-                                <Link href="/dashboard" className={buttonVariants({ size: "sm", })}>
-                                    Dashboard
-                                </Link>
-                            </div>
-                        ) : (
-                            <div className="flex items-center gap-x-4">
-                                <Link href="/auth/sign-in" className={buttonVariants({ size: "sm", variant: "ghost" })}>
-                                    Sign In
-                                </Link>
-                                <Link href="/auth/sign-up" className={buttonVariants({ size: "sm", })}>
+                            <div className="hidden lg:flex items-center gap-2 shrink-0">
+                                <Link href="/contact" className={buttonVariants({ size: "sm", className: "rounded-md px-5 pr-6 shadow-sm" })}>
                                     Get Started
-                                    <ZapIcon className="size-3.5 ml-1.5 text-orange-500 fill-orange-500" />
+                                    <ZapIcon className="ml-1.5 h-3.5 w-3.5 fill-current" />
                                 </Link>
                             </div>
-                        )}
+
+                            <MobileNavbar />
+                        </div>
                     </div>
-
-                    <MobileNavbar />
-
                 </MaxWidthWrapper>
             </AnimationContainer>
         </header>
-    )
+    );
 };
 
 const ListItem = React.forwardRef<
     React.ElementRef<"a">,
-    React.ComponentPropsWithoutRef<"a"> & { title: string; icon: LucideIcon }
+    React.ComponentPropsWithoutRef<"a"> & { title: string; icon: any }
 >(({ className, title, href, icon: Icon, children, ...props }, ref) => {
     return (
         <li>
@@ -150,13 +115,13 @@ const ListItem = React.forwardRef<
                     href={href!}
                     ref={ref}
                     className={cn(
-                        "block select-none space-y-1 rounded-lg p-3 leading-none no-underline outline-none transition-all duration-100 ease-out hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+                        "block select-none space-y-1 rounded-xl p-3 leading-none no-underline outline-none transition-all duration-100 ease-out hover:bg-muted focus:bg-muted",
                         className
                     )}
                     {...props}
                 >
-                    <div className="flex items-center space-x-2 text-neutral-300">
-                        <Icon className="h-4 w-4" />
+                    <div className="flex items-center space-x-2 text-foreground">
+                        <Icon className="h-4 w-4 text-foreground/70" />
                         <h6 className="text-sm font-medium !leading-none">
                             {title}
                         </h6>
@@ -167,8 +132,8 @@ const ListItem = React.forwardRef<
                 </Link>
             </NavigationMenuLink>
         </li>
-    )
-})
-ListItem.displayName = "ListItem"
+    );
+});
+ListItem.displayName = "ListItem";
 
-export default Navbar
+export default Navbar;

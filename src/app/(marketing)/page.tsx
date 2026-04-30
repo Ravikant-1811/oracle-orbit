@@ -8,14 +8,11 @@ import MagicBadge from "@/components/ui/magic-badge";
 import MagicCard from "@/components/ui/magic-card";
 import { COMPANIES, PROCESS } from "@/utils";
 import { REVIEWS } from "@/utils/constants/misc";
-import { currentUser } from "@clerk/nextjs/server";
 import { ArrowRightIcon, CreditCardIcon, StarIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 const HomePage = async () => {
-
-    const user = await currentUser();
 
     return (
         <div className="overflow-x-hidden scrollbar-hide size-full">
@@ -27,27 +24,35 @@ const HomePage = async () => {
                             <span>
                                 <span className="spark mask-gradient absolute inset-0 h-[100%] w-[100%] animate-flip overflow-hidden rounded-full [mask:linear-gradient(white,_transparent_50%)] before:absolute before:aspect-square before:w-[200%] before:rotate-[-90deg] before:animate-rotate before:bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)] before:content-[''] before:[inset:0_auto_auto_50%] before:[translate:-50%_-15%]" />
                             </span>
-                            <span className="backdrop absolute inset-[1px] rounded-full bg-neutral-950 transition-colors duration-200 group-hover:bg-neutral-900" />
+                            <span className="backdrop absolute inset-[1px] rounded-full bg-white transition-colors duration-200 group-hover:bg-slate-50" />
                             <span className="h-full w-full blur-md absolute bottom-0 inset-x-0 bg-gradient-to-tr from-primary/20"></span>
-                            <span className="z-10 py-0.5 text-sm text-neutral-100 flex items-center justify-center gap-1">
-                                ✨ Manage links smarter
+                            <span className="z-10 py-0.5 text-sm text-foreground flex items-center justify-center gap-1">
+                                ✨ OracleOrbit Services
                                 <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
                             </span>
                         </button>
                         <h1 className="text-foreground text-center py-6 text-5xl font-medium tracking-normal text-balance sm:text-6xl md:text-7xl lg:text-8xl !leading-[1.15] w-full font-heading">
-                            Smart Links with <span className="text-transparent bg-gradient-to-r from-violet-500 to-fuchsia-500 bg-clip-text inline-bloc">
-                                Precision
+                            <span className="block">Connect</span>
+                            <span className="block">
+                                Innovate{" "}
+                                <span className="text-transparent bg-gradient-to-r from-violet-500 to-fuchsia-500 bg-clip-text">
+                                    Elevate
+                                </span>
                             </span>
                         </h1>
                         <p className="mb-12 text-lg tracking-tight text-muted-foreground md:text-xl text-balance">
-                            Effortlessly streamline your link management with Linkify.
+                            Oracle Orbit is your IT and growth partner for websites, software,
+                            and automation.
                             <br className="hidden md:block" />
-                            <span className="hidden md:block">Shorten, track, and organize all your links in one place.</span>
+                            <span className="hidden md:block">
+                                We pair clean builds with SEO, Google Business Profile, and
+                                performance marketing to bring in better visibility and leads.
+                            </span>
                         </p>
                         <div className="flex items-center justify-center whitespace-nowrap gap-4 z-50">
                             <Button asChild>
-                                <Link href={user ? "/dashboard" : "/auth/sign-in"} className="flex items-center">
-                                    Start creating for free
+                                <Link href="/contact" className="flex items-center">
+                                    Get Started
                                     <ArrowRightIcon className="w-4 h-4 ml-2" />
                                 </Link>
                             </Button>
@@ -56,19 +61,19 @@ const HomePage = async () => {
 
                     <AnimationContainer delay={0.2} className="relative pt-20 pb-20 md:py-32 px-2 bg-transparent w-full">
                         <div className="absolute md:top-[10%] left-1/2 gradient w-3/4 -translate-x-1/2 h-1/4 md:h-1/3 inset-0 blur-[5rem] animate-image-glow"></div>
-                        <div className="-m-2 rounded-xl p-2 ring-1 ring-inset ring-foreground/20 lg:-m-4 lg:rounded-2xl bg-opacity-50 backdrop-blur-3xl">
+                        <div className="-m-2 rounded-3xl p-3 ring-1 ring-inset ring-foreground/15 lg:-m-4 lg:rounded-[2rem] bg-background/70 backdrop-blur-3xl shadow-[0_30px_80px_-35px_rgba(15,23,42,0.25)]">
                             <BorderBeam
                                 size={250}
                                 duration={12}
                                 delay={9}
                             />
                             <Image
-                                src="/assets/dashboard-dark.svg"
-                                alt="Dashboard"
-                                width={1200}
-                                height={1200}
+                                src="/assets/heroimg.jpg"
+                                alt="Oracle Orbit hero image"
+                                width={1600}
+                                height={900}
                                 quality={100}
-                                className="rounded-md lg:rounded-xl bg-foreground/10 ring-1 ring-border"
+                                className="rounded-2xl w-full h-auto object-cover"
                             />
                             <div className="absolute -bottom-4 inset-x-0 w-full h-1/2 bg-gradient-to-t from-background z-40"></div>
                             <div className="absolute bottom-0 md:-bottom-8 inset-x-0 w-full h-1/4 bg-gradient-to-t from-background z-50"></div>
@@ -82,7 +87,7 @@ const HomePage = async () => {
                 <AnimationContainer delay={0.4}>
                     <div className="py-14">
                         <div className="mx-auto px-4 md:px-8">
-                            <h2 className="text-center text-sm font-medium font-heading text-neutral-400 uppercase">
+                            <h2 className="text-center text-sm font-medium font-heading text-foreground/70 uppercase">
                                 Trusted by the best in the industry
                             </h2>
                             <div className="mt-8">
@@ -95,7 +100,7 @@ const HomePage = async () => {
                                                 width={80}
                                                 height={80}
                                                 quality={100}
-                                                className="w-28 h-auto"
+                                                className="w-28 h-auto invert brightness-0 opacity-70"
                                             />
                                         </li>
                                     ))}

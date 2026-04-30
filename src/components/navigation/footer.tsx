@@ -1,152 +1,169 @@
-import Link from 'next/link';
-import { AnimationContainer, Icons } from "@/components"
-import { TextHoverEffect } from "@/components/ui/text-hover-effect"
+import Link from "next/link";
+import { AnimationContainer, Icons } from "@/components";
+
+const services = [
+    { label: "Websites", href: "/services" },
+    { label: "Software", href: "/services" },
+    { label: "Automation", href: "/services" },
+    { label: "SEO", href: "/services" },
+    { label: "GMB", href: "/services" },
+    { label: "Performance Marketing", href: "/services" },
+];
+
+const companyLinks = [
+    { label: "About", href: "/about" },
+    { label: "Clients", href: "/clients" },
+    { label: "FAQ", href: "/faq" },
+    { label: "Blog", href: "/resources/blog" },
+    { label: "Contact", href: "/contact" },
+];
 
 const Footer = () => {
+    const year = new Date().getFullYear();
+
     return (
-        <footer className="flex flex-col relative items-center justify-center border-t border-border pt-16 pb-8 md:pb-0 px-6 lg:px-8 w-full max-w-6xl mx-auto lg:pt-32 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)]">
+        <footer className="relative w-full border-t border-border/60 bg-gradient-to-b from-background to-muted/20">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 h-1.5 w-10 rounded-full bg-foreground" />
 
-            <div className="absolute top-0 left-1/2 right-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-1.5 bg-foreground rounded-full"></div>
+            <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6 py-16 lg:px-8 lg:py-20">
+                <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
+                    <AnimationContainer delay={0.1}>
+                        <div className="max-w-xl">
+                            <div className="flex items-center gap-3">
+                                <Icons.logo className="h-11 w-11 shrink-0" />
+                                <div>
+                                    <p className="text-xs font-medium uppercase tracking-[0.4em] text-muted-foreground">
+                                        OracleOrbit Services
+                                    </p>
+                                    <h2 className="mt-2 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+                                        Oracle Orbit
+                                    </h2>
+                                </div>
+                            </div>
 
-            <div className="grid gap-8 xl:grid-cols-3 xl:gap-8 w-full">
+                            <p className="mt-6 text-base leading-8 text-muted-foreground sm:text-lg">
+                                Build it. Launch it. Grow it. Oracle Orbit is your IT and growth
+                                partner. We build websites, software, and automation, then scale
+                                your visibility with SEO, Google Business Profile (GMB), and
+                                performance marketing.
+                            </p>
 
-                <AnimationContainer delay={0.1}>
-                    <div className="flex flex-col items-start justify-start md:max-w-[200px]">
-                        <div className="flex items-start">
-                            <Icons.logo className="w-7 h-7" />
+                            <div className="mt-6 flex flex-wrap gap-3">
+                                {["Software", "DevOps", "Marketing", "All-in-one growth partner"].map(
+                                    (item) => (
+                                        <span
+                                            key={item}
+                                            className="rounded-full border border-border/70 bg-background px-4 py-2 text-sm text-muted-foreground shadow-sm"
+                                        >
+                                            {item}
+                                        </span>
+                                    ),
+                                )}
+                            </div>
+
+                            <div className="mt-8 flex flex-wrap gap-3">
+                                <Link
+                                    href="/contact"
+                                    className="inline-flex items-center justify-center rounded-full bg-foreground px-5 py-3 text-sm font-medium text-background transition-colors hover:bg-foreground/90"
+                                >
+                                    Start a Project
+                                </Link>
+                                <Link
+                                    href="/services"
+                                    className="inline-flex items-center justify-center rounded-full border border-border px-5 py-3 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+                                >
+                                    Explore Services
+                                </Link>
+                            </div>
                         </div>
-                        <p className="text-muted-foreground mt-4 text-sm text-start">
-                            Manage your links with ease.
-                        </p>
-                        <span className="mt-4 text-neutral-200 text-sm flex items-center">
-                            Made by <Link href="https://shreyas-sihasane.vercel.app/" className="font-semibold ml-1">Shreyas</Link>
-                        </span>
-                    </div>
-                </AnimationContainer>
+                    </AnimationContainer>
 
-                <div className="grid-cols-2 gap-8 grid mt-16 xl:col-span-2 xl:mt-0">
-                    <div className="md:grid md:grid-cols-2 md:gap-8">
+                    <div className="grid gap-8 sm:grid-cols-2">
                         <AnimationContainer delay={0.2}>
-                            <div className="">
-                                <h3 className="text-base font-medium text-white">
-                                    Product
+                            <div>
+                                <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-foreground/90">
+                                    Services
                                 </h3>
-                                <ul className="mt-4 text-sm text-muted-foreground">
-                                    <li className="mt-2">
-                                        <Link href="" className="hover:text-foreground transition-all duration-300">
-                                            Features
-                                        </Link>
-                                    </li>
-                                    <li className="mt-2">
-                                        <Link href="" className="hover:text-foreground transition-all duration-300">
-                                            Pricing
-                                        </Link>
-                                    </li>
-                                    <li className="mt-2">
-                                        <Link href="" className="hover:text-foreground transition-all duration-300">
-                                            Testimonials
-                                        </Link>
-                                    </li>
-                                    <li className="mt-2">
-                                        <Link href="" className="hover:text-foreground transition-all duration-300">
-                                            Integration
-                                        </Link>
-                                    </li>
+                                <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
+                                    {services.map((service) => (
+                                        <li key={service.label}>
+                                            <Link
+                                                href={service.href}
+                                                className="transition-colors hover:text-foreground"
+                                            >
+                                                {service.label}
+                                            </Link>
+                                        </li>
+                                    ))}
                                 </ul>
                             </div>
                         </AnimationContainer>
+
                         <AnimationContainer delay={0.3}>
-                            <div className="mt-10 md:mt-0 flex flex-col">
-                                <h3 className="text-base font-medium text-white">
-                                    Integrations
-                                </h3>
-                                <ul className="mt-4 text-sm text-muted-foreground">
-                                    <li className="">
-                                        <Link href="" className="hover:text-foreground transition-all duration-300">
-                                            Facebook
-                                        </Link>
-                                    </li>
-                                    <li className="mt-2">
-                                        <Link href="" className="hover:text-foreground transition-all duration-300">
-                                            Instagram
-                                        </Link>
-                                    </li>
-                                    <li className="mt-2">
-                                        <Link href="" className="hover:text-foreground transition-all duration-300">
-                                            Twitter
-                                        </Link>
-                                    </li>
-                                    <li className="mt-2">
-                                        <Link href="" className="hover:text-foreground transition-all duration-300">
-                                            LinkedIn
-                                        </Link>
-                                    </li>
-                                </ul>
-                            </div>
-                        </AnimationContainer>
-                    </div>
-                    <div className="md:grid md:grid-cols-2 md:gap-8">
-                        <AnimationContainer delay={0.4}>
-                            <div className="">
-                                <h3 className="text-base font-medium text-white">
-                                    Resources
-                                </h3>
-                                <ul className="mt-4 text-sm text-muted-foreground">
-                                    <li className="mt-2">
-                                        <Link href="/resources/blog" className="hover:text-foreground transition-all duration-300">
-                                            Blog
-                                        </Link>
-                                    </li>
-                                    <li className="mt-2">
-                                        <Link href="/resources/help" className="hover:text-foreground transition-all duration-300">
-                                            Support
-                                        </Link>
-                                    </li>
-                                </ul>
-                            </div>
-                        </AnimationContainer>
-                        <AnimationContainer delay={0.5}>
-                            <div className="mt-10 md:mt-0 flex flex-col">
-                                <h3 className="text-base font-medium text-white">
+                            <div>
+                                <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-foreground/90">
                                     Company
                                 </h3>
-                                <ul className="mt-4 text-sm text-muted-foreground">
-                                    <li className="">
-                                        <Link href="" className="hover:text-foreground transition-all duration-300">
-                                            About Us
-                                        </Link>
-                                    </li>
-                                    <li className="mt-2">
-                                        <Link href="/privacy" className="hover:text-foreground transition-all duration-300">
-                                            Privacy Policy
-                                        </Link>
-                                    </li>
-                                    <li className="mt-2">
-                                        <Link href="/terms" className="hover:text-foreground transition-all duration-300">
-                                            Terms & Conditions
-                                        </Link>
-                                    </li>
+                                <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
+                                    {companyLinks.map((link) => (
+                                        <li key={link.label}>
+                                            <Link
+                                                href={link.href}
+                                                className="transition-colors hover:text-foreground"
+                                            >
+                                                {link.label}
+                                            </Link>
+                                        </li>
+                                    ))}
                                 </ul>
+                            </div>
+                        </AnimationContainer>
+
+                        <AnimationContainer delay={0.4}>
+                            <div className="rounded-3xl border border-border/70 bg-background p-6 shadow-sm sm:col-span-2">
+                                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-foreground/90">
+                                    Growth partner
+                                </p>
+                                <p className="mt-4 text-sm leading-7 text-muted-foreground">
+                                    We help brands ship clean websites, reliable software, useful
+                                    automation, and marketing systems that bring in more visibility,
+                                    leads, and long-term growth.
+                                </p>
+                                <div className="mt-5 flex flex-wrap gap-2 text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground">
+                                    <span className="rounded-full border border-border/70 px-3 py-2">
+                                        Web
+                                    </span>
+                                    <span className="rounded-full border border-border/70 px-3 py-2">
+                                        SEO
+                                    </span>
+                                    <span className="rounded-full border border-border/70 px-3 py-2">
+                                        GMB
+                                    </span>
+                                    <span className="rounded-full border border-border/70 px-3 py-2">
+                                        Ads
+                                    </span>
+                                </div>
                             </div>
                         </AnimationContainer>
                     </div>
                 </div>
 
-            </div>
+                <div className="flex flex-col gap-4 border-t border-border/60 pt-6 sm:flex-row sm:items-center sm:justify-between">
+                    <AnimationContainer delay={0.5}>
+                        <p className="text-sm text-muted-foreground">
+                            &copy; {year} Oracle Orbit. All rights reserved.
+                        </p>
+                    </AnimationContainer>
 
-            <div className="mt-8 border-t border-border/40 pt-4 md:pt-8 md:flex md:items-center md:justify-between w-full">
-                <AnimationContainer delay={0.6}>
-                    <p className="text-sm text-muted-foreground mt-8 md:mt-0">
-                        &copy; {new Date().getFullYear()} Linkify INC. All rights reserved.
-                    </p>
-                </AnimationContainer>
-            </div>
-
-            <div className="h-[20rem] lg:h-[20rem] hidden md:flex items-center justify-center">
-                <TextHoverEffect text="LINKIFY" />
+                    <AnimationContainer delay={0.6}>
+                        <p className="text-sm text-muted-foreground">
+                            OracleOrbit Services · Build it. Launch it. Grow it.
+                        </p>
+                    </AnimationContainer>
+                </div>
             </div>
         </footer>
-    )
-}
+    );
+};
 
-export default Footer
+export default Footer;

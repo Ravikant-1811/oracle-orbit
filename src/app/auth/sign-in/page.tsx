@@ -17,14 +17,7 @@ const SignInPage = () => {
 
             <div className="flex flex-col items-start w-full">
                 <p className="text-sm text-muted-foreground">
-                    By signing in, you agree to our{" "}
-                    <Link href="/terms" className="text-primary">
-                        Terms of Service{" "}
-                    </Link>
-                    and{" "}
-                    <Link href="/privacy" className="text-primary">
-                        Privacy Policy
-                    </Link>
+                    This local build does not include authentication.
                 </p>
             </div>
             <div className="flex items-start mt-auto border-t border-border/80 py-6 w-full">
@@ -36,7 +29,7 @@ const SignInPage = () => {
                 </p>
             </div>
         </div>
-    )
+    );
 };
 
-export default SignInPage
+export default SignInPage;

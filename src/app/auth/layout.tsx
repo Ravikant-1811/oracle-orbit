@@ -9,7 +9,7 @@ interface Props {
 const MarketingLayout = ({ children }: Props) => {
     return (
         <MaxWidthWrapper>
-            <Toaster richColors theme="dark" position="top-right" />
+            <Toaster richColors theme="light" position="top-right" />
             <main className="mx-auto w-full relative">
                 {children}
             </main>

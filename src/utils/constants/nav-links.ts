@@ -2,8 +2,26 @@ import { HelpCircleIcon, LineChartIcon, Link2Icon, LockIcon, NewspaperIcon, QrCo
 
 export const NAV_LINKS = [
     {
-        title: "Features",
-        href: "/features",
+        title: "Company",
+        href: "/about",
+        menu: [
+            {
+                title: "About Us",
+                tagline: "Learn more about Oracle Orbit.",
+                href: "/about",
+                icon: NewspaperIcon,
+            },
+            {
+                title: "Clients",
+                tagline: "See who we work with.",
+                href: "/clients",
+                icon: HelpCircleIcon,
+            },
+        ],
+    },
+    {
+        title: "Services",
+        href: "/services",
         menu: [
             {
                 title: "Link Shortening",
@@ -32,33 +50,15 @@ export const NAV_LINKS = [
         ],
     },
     {
-        title: "Pricing",
-        href: "/pricing",
+        title: "FAQ",
+        href: "/faq",
     },
     {
-        title: "Enterprise",
-        href: "/enterprise",
+        title: "Blog",
+        href: "/resources/blog",
     },
     {
-        title: "Resources",
-        href: "/resources",
-        menu: [
-            {
-                title: "Blog",
-                tagline: "Read articles on the latest trends in tech.",
-                href: "/resources/blog",
-                icon: NewspaperIcon,
-            },
-            {
-                title: "Help",
-                tagline: "Get answers to your questions.",
-                href: "/resources/help",
-                icon: HelpCircleIcon,
-            },
-        ]
-    },
-    {
-        title: "Changelog",
-        href: "/changelog",
+        title: "Contact",
+        href: "/contact",
     },
 ];
