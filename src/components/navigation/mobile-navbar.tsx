@@ -13,8 +13,9 @@ import {
     SheetContent,
     SheetTrigger
 } from "@/components/ui/sheet";
-import { cn, NAV_LINKS } from "@/utils";
+import { cn, COMPANY_LINKS, NAV_LINKS, SERVICE_LINKS } from "@/utils";
 import { ChevronDown, LucideIcon, Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -56,13 +57,67 @@ const MobileNavbar = () => {
                                                     </span>
                                                 </AccordionTrigger>
                                                 <AccordionContent>
-                                                    <ul onClick={handleClose} className={cn("w-full")}>
-                                                        {link.menu.map((menuItem) => (
-                                                            <ListItem key={menuItem.title} title={menuItem.title} href={menuItem.href} icon={menuItem.icon}>
-                                                                {menuItem.tagline}
-                                                            </ListItem>
-                                                        ))}
-                                                    </ul>
+                                                    <div className="space-y-4 pb-3">
+                                                        {link.title === "Services" ? (
+                                                            <>
+                                                                <Link
+                                                                    href="/services"
+                                                                    onClick={handleClose}
+                                                                    className="relative block overflow-hidden rounded-2xl border border-border/60 bg-muted/10"
+                                                                >
+                                                                    <div className="relative aspect-[16/9]">
+                                                                        <Image
+                                                                            src="/assets/services/nav-services.svg"
+                                                                            alt="Oracle Orbit services preview"
+                                                                            fill
+                                                                            className="object-cover"
+                                                                        />
+                                                                    </div>
+                                                                    <div className="p-4">
+                                                                        <p className="text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">
+                                                                            Oracle Orbit Services
+                                                                        </p>
+                                                                        <p className="mt-2 text-sm text-muted-foreground">
+                                                                            Build, rank, automate, and grow.
+                                                                        </p>
+                                                                    </div>
+                                                                </Link>
+                                                                <ul onClick={handleClose} className="w-full">
+                                                                    {SERVICE_LINKS.map((menuItem) => (
+                                                                        <ListItem
+                                                                            key={menuItem.title}
+                                                                            title={menuItem.title}
+                                                                            href={menuItem.href}
+                                                                            icon={menuItem.icon}
+                                                                        >
+                                                                            {menuItem.tagline}
+                                                                        </ListItem>
+                                                                    ))}
+                                                                </ul>
+                                                            </>
+                                                        ) : link.title === "Company" ? (
+                                                            <ul onClick={handleClose} className="w-full">
+                                                                {COMPANY_LINKS.map((menuItem) => (
+                                                                    <ListItem
+                                                                        key={menuItem.title}
+                                                                        title={menuItem.title}
+                                                                        href={menuItem.href}
+                                                                        icon={menuItem.icon}
+                                                                    >
+                                                                        {menuItem.tagline}
+                                                                    </ListItem>
+                                                                ))}
+                                                            </ul>
+                                                        ) : (
+                                                            <ul onClick={handleClose} className={cn("w-full")}>
+                                                                {link.menu.map((menuItem) => (
+                                                                    <ListItem key={menuItem.title} title={menuItem.title} href={menuItem.href} icon={menuItem.icon}>
+                                                                        {menuItem.tagline}
+                                                                    </ListItem>
+                                                                ))}
+                                                            </ul>
+                                                        )}
+                                                    </div>
                                                 </AccordionContent>
                                             </>
                                         ) : (
