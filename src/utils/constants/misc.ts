@@ -1,4 +1,16 @@
-import { BarChart3Icon, FolderOpenIcon, WandSparklesIcon } from "lucide-react";
+import {
+    Code2Icon,
+    GlobeIcon,
+    MapPinIcon,
+    MegaphoneIcon,
+    PenToolIcon,
+    RocketIcon,
+    SearchIcon,
+    Share2Icon,
+    ShieldCheckIcon,
+    TrendingUpIcon,
+    WorkflowIcon,
+} from "lucide-react";
 
 export const DEFAULT_AVATAR_URL = "https://api.dicebear.com/8.x/initials/svg?backgroundType=gradientLinear&backgroundRotation=0,360&seed=";
 
@@ -33,19 +45,144 @@ export const COMPANIES = [
 
 export const PROCESS = [
     {
-        title: "Organize Your Links",
-        description: "Efficiently categorize and tag your links for quick access and easy management.",
-        icon: FolderOpenIcon,
+        title: "Audit",
+        description: "We review your website, SEO, analytics, and current marketing channels to find the biggest growth gaps.",
+        icon: SearchIcon,
     },
     {
-        title: "Shorten and Customize",
-        description: "Create concise, branded links that are easy to share and track.",
-        icon: WandSparklesIcon,
+        title: "Plan",
+        description: "We map the build roadmap, keyword targets, GBP actions, and campaign priorities around your goals.",
+        icon: PenToolIcon,
     },
     {
-        title: "Analyze and Optimize",
-        description: "Gain insights into link performance and optimize for better engagement.",
-        icon: BarChart3Icon,
+        title: "Execute",
+        description: "We launch, measure, and improve with a focused cadence across design, content, automation, and ads.",
+        icon: RocketIcon,
+    },
+] as const;
+
+export const SERVICES = [
+    {
+        id: "websites",
+        eyebrow: "Build",
+        title: "Websites & software",
+        description: "Conversion-ready websites, landing pages, and internal tools built to feel sharp, fast, and reliable.",
+        image: "/assets/services/websites-software.svg",
+        tags: ["Responsive", "Scalable", "Fast loading"],
+    },
+    {
+        id: "seo",
+        eyebrow: "Rank",
+        title: "SEO & Google Business Profile",
+        description: "Local SEO, on-page optimization, and GBP tuning that help your business show up where people search.",
+        image: "/assets/services/seo-gbp.svg",
+        tags: ["Local SEO", "Maps", "Listings"],
+    },
+    {
+        id: "automation",
+        eyebrow: "Automate",
+        title: "Automation & integrations",
+        description: "Workflow automations, lead routing, and system integrations that remove busywork from your day.",
+        image: "/assets/services/automation.svg",
+        tags: ["Workflows", "Zapier-ready", "Integrations"],
+    },
+    {
+        id: "marketing",
+        eyebrow: "Grow",
+        title: "Performance marketing",
+        description: "Campaigns, reporting, and conversion tracking that turn attention into calls, leads, and revenue.",
+        image: "/assets/services/marketing.svg",
+        tags: ["Campaigns", "Tracking", "Reporting"],
+    },
+] as const;
+
+export const SERVICE_GROUPS = [
+    {
+        id: "growth-visibility",
+        badge: "Growth and visibility",
+        title: "Reach more of the right people",
+        description: "Everything that helps your business get found, get chosen, and get measurable demand.",
+        items: [
+            {
+                id: "digital-marketing",
+                title: "Digital marketing",
+                description: "Joined-up marketing strategy, campaign planning, messaging, and channel direction that keeps the whole system moving.",
+                icon: MegaphoneIcon,
+                tags: ["Strategy", "Campaigns", "Messaging"],
+            },
+            {
+                id: "seo",
+                title: "SEO",
+                description: "On-page, technical, and local SEO work that improves search visibility and helps the right people find you.",
+                icon: SearchIcon,
+                tags: ["Technical", "On-page", "Local SEO"],
+            },
+            {
+                id: "google-business-profile-management",
+                title: "Google Business Profile management",
+                description: "Profile setup, optimisation, posts, services, and review support so your local presence looks active and trustworthy.",
+                icon: MapPinIcon,
+                tags: ["Maps", "Local pack", "Reviews"],
+            },
+            {
+                id: "social-media-marketing",
+                title: "Social media marketing",
+                description: "Content direction, brand presence, and consistent posting support for businesses that need a stronger social footprint.",
+                icon: Share2Icon,
+                tags: ["Content", "Organic reach", "Engagement"],
+            },
+            {
+                id: "performance-marketing",
+                title: "Performance marketing",
+                description: "Paid campaigns, conversion tracking, and reporting that turn attention into leads, calls, and sales.",
+                icon: TrendingUpIcon,
+                tags: ["Paid ads", "Tracking", "ROI"],
+            },
+        ],
+    },
+    {
+        id: "build-experience",
+        badge: "Build and experience",
+        title: "Create a better digital foundation",
+        description: "Web and software work that makes your brand faster, clearer, and more useful to customers and teams.",
+        items: [
+            {
+                id: "website-development",
+                title: "Website development",
+                description: "Modern, responsive websites and landing pages designed to communicate clearly and convert better.",
+                icon: GlobeIcon,
+                tags: ["Responsive", "UI/UX", "Conversion"],
+            },
+            {
+                id: "software-development",
+                title: "Software development",
+                description: "Custom tools, portals, and internal products tailored to your workflows, data, and delivery needs.",
+                icon: Code2Icon,
+                tags: ["Custom apps", "Portals", "Internal tools"],
+            },
+        ],
+    },
+    {
+        id: "efficiency-support",
+        badge: "Efficiency and support",
+        title: "Remove friction from the business",
+        description: "Automation and support services that reduce repetitive work and keep your systems reliable.",
+        items: [
+            {
+                id: "automation",
+                title: "Automation",
+                description: "Workflow automations, lead routing, and system integrations that save time and reduce manual work.",
+                icon: WorkflowIcon,
+                tags: ["Workflows", "Integrations", "Lead routing"],
+            },
+            {
+                id: "it-services",
+                title: "IT services",
+                description: "Practical technical support for setup, maintenance, troubleshooting, and the systems behind day-to-day operations.",
+                icon: ShieldCheckIcon,
+                tags: ["Support", "Maintenance", "Systems"],
+            },
+        ],
     },
 ] as const;
 

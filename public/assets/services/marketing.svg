@@ -1,0 +1,38 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="130" y1="90" x2="1070" y2="820" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FAFC"/>
+      <stop offset="0.52" stop-color="#FFE4E6"/>
+      <stop offset="1" stop-color="#FEF3C7"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="260" y1="250" x2="900" y2="660" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F97316"/>
+      <stop offset="1" stop-color="#DB2777"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" rx="48" fill="url(#bg)"/>
+  <circle cx="220" cy="170" r="104" fill="#FDBA74" fill-opacity="0.24"/>
+  <circle cx="970" cy="196" r="132" fill="#FDE68A" fill-opacity="0.22"/>
+  <rect x="170" y="150" width="860" height="600" rx="36" fill="#FFFFFF" fill-opacity="0.9" stroke="#FED7AA"/>
+  <rect x="232" y="220" width="238" height="268" rx="30" fill="#0F172A" fill-opacity="0.92"/>
+  <rect x="270" y="262" width="160" height="18" rx="9" fill="#FDBA74"/>
+  <rect x="270" y="296" width="118" height="12" rx="6" fill="#E2E8F0"/>
+  <rect x="270" y="338" width="160" height="126" rx="24" fill="#111827" fill-opacity="0.7"/>
+  <path d="M294 438L332 396L362 420L402 372" stroke="url(#accent)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M402 372L392 372L402 382" stroke="#FDBA74" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="220" y="536" width="368" height="120" rx="30" fill="#FFF7ED" stroke="#FED7AA"/>
+  <rect x="256" y="570" width="172" height="16" rx="8" fill="#FB7185"/>
+  <rect x="256" y="602" width="132" height="12" rx="6" fill="#94A3B8"/>
+  <rect x="730" y="230" width="248" height="386" rx="32" fill="#FFF7ED" stroke="#FED7AA"/>
+  <path d="M778 536L820 470L870 500L912 424L948 448" stroke="url(#accent)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M774 536H952" stroke="#E2E8F0" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="778" cy="536" r="16" fill="#F97316"/>
+  <circle cx="820" cy="470" r="16" fill="#F97316"/>
+  <circle cx="870" cy="500" r="16" fill="#F97316"/>
+  <circle cx="912" cy="424" r="16" fill="#F97316"/>
+  <circle cx="948" cy="448" r="16" fill="#DB2777"/>
+  <rect x="734" y="648" width="294" height="44" rx="22" fill="#0F172A" fill-opacity="0.92"/>
+  <rect x="764" y="662" width="126" height="12" rx="6" fill="#F8FAFC"/>
+  <rect x="900" y="655" width="94" height="26" rx="13" fill="#FFFFFF" fill-opacity="0.9"/>
+  <rect x="914" y="663" width="64" height="10" rx="5" fill="#F97316"/>
+</svg>

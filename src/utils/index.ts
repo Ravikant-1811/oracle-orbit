@@ -1,9 +1,10 @@
 // constants
 import { LIST_ITEM_VARIANTS, CHILD_VARIANTS, FADE_IN_VARIANTS, MODAL_VARIANTS } from "./constants/animation";
 import { APP_DOMAIN, APP_HOSTNAMES, APP_NAME } from "./constants/site";
-import { DEFAULT_AVATAR_URL, PAGINATION_LIMIT, COMPANIES, PROCESS } from "./constants/misc";
+import { DEFAULT_AVATAR_URL, PAGINATION_LIMIT, COMPANIES, PROCESS, SERVICE_GROUPS, SERVICES } from "./constants/misc";
+import { BLOG_CONTENT } from "./constants/blog-content";
 import { PLANS, PRICING_FEATURES, WORKSPACE_LIMIT } from "./constants/pricing";
-import { NAV_LINKS } from "./constants/nav-links";
+import { COMPANY_LINKS, NAV_LINKS, SERVICE_LINKS } from "./constants/nav-links";
 import { aeonik, inter } from "./constants/fonts";
 
 // functions
@@ -26,8 +27,13 @@ export {
     PRICING_FEATURES,
     WORKSPACE_LIMIT,
     NAV_LINKS,
+    COMPANY_LINKS,
+    SERVICE_LINKS,
     COMPANIES,
     PROCESS,
+    SERVICE_GROUPS,
+    SERVICES,
+    BLOG_CONTENT,
     aeonik,
     inter,
 

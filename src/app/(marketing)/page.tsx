@@ -1,18 +1,19 @@
-import { AnimationContainer, MaxWidthWrapper, PricingCards } from "@/components";
-import { BentoCard, BentoGrid, CARDS } from "@/components/ui/bento-grid";
-import { BorderBeam } from "@/components/ui/border-beam";
+import { AnimationContainer, MaxWidthWrapper } from "@/components";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { LampContainer } from "@/components/ui/lamp";
 import MagicBadge from "@/components/ui/magic-badge";
 import MagicCard from "@/components/ui/magic-card";
+import ServicesSection from "@/components/marketing/services-section";
+import HeroCta from "@/components/marketing/hero-cta";
+import HeroVisual from "@/components/marketing/hero-visual";
 import { COMPANIES, PROCESS } from "@/utils";
 import { REVIEWS } from "@/utils/constants/misc";
-import { ArrowRightIcon, CreditCardIcon, StarIcon } from "lucide-react";
+import { ArrowRightIcon, StarIcon } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 
 const HomePage = async () => {
+    console.log("[Oracle Orbit] Rendering marketing homepage");
 
     return (
         <div className="overflow-x-hidden scrollbar-hide size-full">
@@ -28,7 +29,7 @@ const HomePage = async () => {
                             <span className="h-full w-full blur-md absolute bottom-0 inset-x-0 bg-gradient-to-tr from-primary/20"></span>
                             <span className="z-10 py-0.5 text-sm text-foreground flex items-center justify-center gap-1">
                                 ✨ OracleOrbit Services
-                                <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+                                <span className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5">→</span>
                             </span>
                         </button>
                         <h1 className="text-foreground text-center py-6 text-5xl font-medium tracking-normal text-balance sm:text-6xl md:text-7xl lg:text-8xl !leading-[1.15] w-full font-heading">
@@ -49,153 +50,77 @@ const HomePage = async () => {
                                 performance marketing to bring in better visibility and leads.
                             </span>
                         </p>
-                        <div className="flex items-center justify-center whitespace-nowrap gap-4 z-50">
-                            <Button asChild>
-                                <Link href="/contact" className="flex items-center">
-                                    Get Started
-                                    <ArrowRightIcon className="w-4 h-4 ml-2" />
-                                </Link>
-                            </Button>
+                        <HeroCta />
+                        <div className="mt-12 flex w-full flex-col items-center px-4 md:px-8">
+                            <h2 className="text-center text-sm font-medium text-foreground/70">
+                                Trusted by design teams at
+                            </h2>
+                            <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-6 md:gap-x-12 lg:gap-x-16">
+                                {COMPANIES.map((company) => (
+                                    <li key={company.name} className="flex items-center justify-center">
+                                        <Image
+                                            src={company.logo}
+                                            alt={company.name}
+                                            width={120}
+                                            height={48}
+                                            quality={100}
+                                            className="h-7 w-auto object-contain opacity-70 grayscale brightness-50 md:h-8"
+                                        />
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
                     </AnimationContainer>
 
-                    <AnimationContainer delay={0.2} className="relative pt-20 pb-20 md:py-32 px-2 bg-transparent w-full">
-                        <div className="absolute md:top-[10%] left-1/2 gradient w-3/4 -translate-x-1/2 h-1/4 md:h-1/3 inset-0 blur-[5rem] animate-image-glow"></div>
-                        <div className="-m-2 rounded-3xl p-3 ring-1 ring-inset ring-foreground/15 lg:-m-4 lg:rounded-[2rem] bg-background/70 backdrop-blur-3xl shadow-[0_30px_80px_-35px_rgba(15,23,42,0.25)]">
-                            <BorderBeam
-                                size={250}
-                                duration={12}
-                                delay={9}
-                            />
-                            <Image
-                                src="/assets/heroimg.jpg"
-                                alt="Oracle Orbit hero image"
-                                width={1600}
-                                height={900}
-                                quality={100}
-                                className="rounded-2xl w-full h-auto object-cover"
-                            />
-                            <div className="absolute -bottom-4 inset-x-0 w-full h-1/2 bg-gradient-to-t from-background z-40"></div>
-                            <div className="absolute bottom-0 md:-bottom-8 inset-x-0 w-full h-1/4 bg-gradient-to-t from-background z-50"></div>
-                        </div>
+                    <AnimationContainer delay={0.2} className="w-full">
+                        <HeroVisual src="/assets/heroimg.jpg" alt="Oracle Orbit hero image" />
                     </AnimationContainer>
                 </div>
             </MaxWidthWrapper >
-
-            {/* Companies Section */}
-            <MaxWidthWrapper>
-                <AnimationContainer delay={0.4}>
-                    <div className="py-14">
-                        <div className="mx-auto px-4 md:px-8">
-                            <h2 className="text-center text-sm font-medium font-heading text-foreground/70 uppercase">
-                                Trusted by the best in the industry
-                            </h2>
-                            <div className="mt-8">
-                                <ul className="flex flex-wrap items-center gap-x-6 gap-y-6 md:gap-x-16 justify-center">
-                                    {COMPANIES.map((company) => (
-                                        <li key={company.name}>
-                                            <Image
-                                                src={company.logo}
-                                                alt={company.name}
-                                                width={80}
-                                                height={80}
-                                                quality={100}
-                                                className="w-28 h-auto invert brightness-0 opacity-70"
-                                            />
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </AnimationContainer>
-            </MaxWidthWrapper>
-
-            {/* Features Section */}
-            <MaxWidthWrapper className="pt-10">
-                <AnimationContainer delay={0.1}>
-                    <div className="flex flex-col w-full items-center lg:items-center justify-center py-8">
-                        <MagicBadge title="Features" />
-                        <h2 className="text-center lg:text-center text-3xl md:text-5xl !leading-[1.1] font-medium font-heading text-foreground mt-6">
-                            Manage Links Like a Pro
-                        </h2>
-                        <p className="mt-4 text-center lg:text-center text-lg text-muted-foreground max-w-lg">
-                            Linkify is a powerful link management tool that helps you shorten, track, and organize all your links in one place.
-                        </p>
-                    </div>
-                </AnimationContainer>
-                <AnimationContainer delay={0.2}>
-                    <BentoGrid className="py-8">
-                        {CARDS.map((feature, idx) => (
-                            <BentoCard key={idx} {...feature} />
-                        ))}
-                    </BentoGrid>
-                </AnimationContainer>
-            </MaxWidthWrapper>
+            <ServicesSection
+                badge="Services"
+                title="Minimum services that build, rank, and grow your business"
+                description="We keep the offer focused: websites and software, SEO and Google Business Profile, automation and integrations, and performance marketing."
+                ctaLabel="Explore services"
+                ctaHref="/services"
+                className="pt-10"
+            />
 
             {/* Process Section */}
-            <MaxWidthWrapper className="py-10">
+            <MaxWidthWrapper className="py-12">
                 <AnimationContainer delay={0.1}>
-                    <div className="flex flex-col items-center lg:items-center justify-center w-full py-8 max-w-xl mx-auto">
-                        <MagicBadge title="The Process" />
-                        <h2 className="text-center lg:text-center text-3xl md:text-5xl !leading-[1.1] font-medium font-heading text-foreground mt-6">
-                            Effortless link management in 3 steps
+                    <div className="mx-auto flex w-full max-w-2xl flex-col items-center justify-center py-8 text-center">
+                        <MagicBadge title="How we work" />
+                        <h2 className="mt-6 text-3xl font-medium !leading-[1.05] text-foreground text-balance font-heading md:text-5xl">
+                            A process built for growth.
                         </h2>
-                        <p className="mt-4 text-center lg:text-center text-lg text-muted-foreground max-w-lg">
-                            Follow these simple steps to optimize, organize, and share your links with ease.
+                        <p className="mt-4 max-w-2xl text-lg text-muted-foreground text-balance md:text-xl">
+                            We audit what&apos;s working, plan the right build, and execute with a steady cadence so your site and marketing keep improving.
                         </p>
                     </div>
                 </AnimationContainer>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full py-8 gap-4 md:gap-8">
+                <div className="grid grid-cols-1 gap-4 py-8 md:grid-cols-3 md:gap-6">
                     {PROCESS.map((process, id) => (
                         <AnimationContainer delay={0.2 * id} key={id}>
-                            <MagicCard className="group md:py-8">
-                                <div className="flex flex-col items-start justify-center w-full">
-                                    <process.icon strokeWidth={1.5} className="w-10 h-10 text-foreground" />
-                                    <div className="flex flex-col relative items-start">
-                                        <span className="absolute -top-6 right-0 border-2 border-border text-foreground font-medium text-2xl rounded-full w-12 h-12 flex items-center justify-center pt-0.5">
-                                            {id + 1}
-                                        </span>
-                                        <h3 className="text-base mt-6 font-medium text-foreground">
-                                            {process.title}
-                                        </h3>
-                                        <p className="mt-2 text-sm text-muted-foreground">
-                                            {process.description}
-                                        </p>
+                            <div className="relative rounded-[24px] border border-border/60 bg-background p-6 shadow-[0_24px_70px_-24px_rgba(15,23,42,0.12)]">
+                                <div className="flex items-start justify-between gap-4">
+                                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-border/60 bg-muted/10">
+                                        <process.icon strokeWidth={1.5} className="h-7 w-7 text-foreground" />
+                                    </div>
+                                    <div className="flex h-12 w-12 items-center justify-center rounded-full border border-border/70 text-lg font-medium text-foreground">
+                                        {id + 1}
                                     </div>
                                 </div>
-                            </MagicCard>
+                                <h3 className="mt-10 text-2xl font-medium text-foreground">
+                                    {process.title}
+                                </h3>
+                                <p className="mt-3 max-w-md text-sm leading-6 text-muted-foreground">
+                                    {process.description}
+                                </p>
+                            </div>
                         </AnimationContainer>
                     ))}
                 </div>
-            </MaxWidthWrapper>
-
-            {/* Pricing Section */}
-            <MaxWidthWrapper className="py-10">
-                <AnimationContainer delay={0.1}>
-                    <div className="flex flex-col items-center lg:items-center justify-center w-full py-8 max-w-xl mx-auto">
-                        <MagicBadge title="Simple Pricing" />
-                        <h2 className="text-center lg:text-center text-3xl md:text-5xl !leading-[1.1] font-medium font-heading text-foreground mt-6">
-                            Choose a plan that works for you
-                        </h2>
-                        <p className="mt-4 text-center lg:text-center text-lg text-muted-foreground max-w-lg">
-                            Get started with Linkify today and enjoy more features with our pro plans.
-                        </p>
-                    </div>
-                </AnimationContainer>
-                <AnimationContainer delay={0.2}>
-                    <PricingCards />
-                </AnimationContainer>
-                <AnimationContainer delay={0.3}>
-                    <div className="flex flex-wrap items-start md:items-center justify-center lg:justify-evenly gap-6 mt-12 max-w-5xl mx-auto w-full">
-                        <div className="flex items-center gap-2">
-                            <CreditCardIcon className="w-5 h-5 text-foreground" />
-                            <span className="text-muted-foreground">
-                                No credit card required
-                            </span>
-                        </div>
-                    </div>
-                </AnimationContainer>
             </MaxWidthWrapper>
 
             {/* Reviews Section */}
