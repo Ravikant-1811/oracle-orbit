@@ -1,38 +1,57 @@
 [
     {
-        "title": "How to Maximize Your Productivity with Link Management Tools",
-        "image": "/assets/blog1.jpg",
-        "author_image": "https://example.com/images/author1.jpg",
-        "author_name": "John Doe",
-        "date_published": "2024-10-05",
-        "description": "Learn how to maximize your productivity with link management tools.",
-        "slug": "how-to-maximize-your-productivity-with-link-management-tools"
+        "title": "How to turn your website into a lead engine",
+        "image": "/assets/blogs/lead-engine.svg",
+        "author_image": "/icons/logo.png",
+        "author_name": "Oracle Orbit Team",
+        "date_published": "2026-04-29",
+        "category": "Website development",
+        "read_time": "6 min read",
+        "description": "A practical breakdown of the pages, proof, and calls-to-action that help a website convert traffic into enquiries.",
+        "slug": "how-to-turn-your-website-into-a-lead-engine"
     },
     {
-        "title": "The Ultimate Guide to Organizing Links for Teams",
-        "image": "/assets/blog2.jpg",
-        "author_image": "https://example.com/images/author2.jpg",
-        "author_name": "Jane Smith",
-        "date_published": "2024-09-28",
-        "description": "How to organize links for teams.",
-        "slug": "the-ultimate-guide-to-organizing-links-for-teams"
+        "title": "Google Business Profile basics that actually move the needle",
+        "image": "/assets/blogs/gbp-basics.svg",
+        "author_image": "/icons/logo.png",
+        "author_name": "Oracle Orbit Team",
+        "date_published": "2026-04-26",
+        "category": "GBP management",
+        "read_time": "5 min read",
+        "description": "Simple changes to categories, services, posts, and reviews that improve local visibility without overcomplicating the profile.",
+        "slug": "google-business-profile-basics-that-actually-move-the-needle"
     },
     {
-        "title": "Why Link Management is Essential for Digital Marketers",
-        "image": "/assets/blog3.jpg",
-        "author_image": "https://example.com/images/author3.jpg",
-        "author_name": "Chris Martin",
-        "date_published": "2024-09-20",
-        "description": "Link management is essential for digital marketers.",
-        "slug": "why-link-management-is-essential-for-digital-marketers"
+        "title": "The Connect, Innovate, Elevate framework for growth",
+        "image": "/assets/blogs/connect-innovate-elevate.svg",
+        "author_image": "/icons/logo.png",
+        "author_name": "Oracle Orbit Team",
+        "date_published": "2026-04-23",
+        "category": "Strategy",
+        "read_time": "4 min read",
+        "description": "How Oracle Orbit thinks about marketing, websites, automation, and support as one connected growth system.",
+        "slug": "the-connect-innovate-elevate-framework-for-growth"
     },
     {
-        "title": "Top 5 Features Every Link Management Software Should Have",
-        "image": "/assets/blog4.jpg",
-        "author_image": "https://example.com/images/author4.jpg",
-        "author_name": "Emily Clark",
-        "date_published": "2024-09-15",
-        "description": "The features that every link management software should have.",
-        "slug": "top-5-features-every-link-management-software-should-have"
+        "title": "Automation ideas that save teams hours every week",
+        "image": "/assets/blogs/automation-hacks.svg",
+        "author_image": "/icons/logo.png",
+        "author_name": "Oracle Orbit Team",
+        "date_published": "2026-04-20",
+        "category": "Automation",
+        "read_time": "7 min read",
+        "description": "Lead routing, follow-up sequences, and internal workflows that remove repetitive work and keep momentum high.",
+        "slug": "automation-ideas-that-save-teams-hours-every-week"
+    },
+    {
+        "title": "SEO priorities for small businesses in 2026",
+        "image": "/assets/blogs/seo-priorities.svg",
+        "author_image": "/icons/logo.png",
+        "author_name": "Oracle Orbit Team",
+        "date_published": "2026-04-17",
+        "category": "SEO",
+        "read_time": "6 min read",
+        "description": "The first technical, content, and local SEO fixes we recommend before scaling any bigger campaigns.",
+        "slug": "seo-priorities-for-small-businesses-in-2026"
     }
 ]

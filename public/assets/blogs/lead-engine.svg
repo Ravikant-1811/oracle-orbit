@@ -1,0 +1,31 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="70" x2="1080" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EEF2FF"/>
+      <stop offset="0.5" stop-color="#F8FAFC"/>
+      <stop offset="1" stop-color="#FCE7F3"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="240" y1="180" x2="960" y2="620" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7C3AED"/>
+      <stop offset="1" stop-color="#DB2777"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" rx="48" fill="url(#bg)"/>
+  <circle cx="990" cy="160" r="136" fill="#C4B5FD" fill-opacity="0.24"/>
+  <circle cx="214" cy="150" r="96" fill="#93C5FD" fill-opacity="0.18"/>
+  <rect x="148" y="132" width="904" height="536" rx="34" fill="#FFFFFF" fill-opacity="0.88" stroke="#E5E7EB"/>
+  <rect x="184" y="174" width="236" height="32" rx="16" fill="#111827"/>
+  <rect x="184" y="236" width="340" height="18" rx="9" fill="#CBD5E1"/>
+  <rect x="184" y="270" width="280" height="14" rx="7" fill="#CBD5E1"/>
+  <rect x="184" y="330" width="318" height="188" rx="28" fill="#F8FAFC" stroke="#E5E7EB"/>
+  <rect x="546" y="206" width="412" height="312" rx="30" fill="#FFF7ED" stroke="#FED7AA"/>
+  <path d="M218 486H438" stroke="#7C3AED" stroke-width="14" stroke-linecap="round"/>
+  <path d="M218 486C270 396 320 362 380 364C426 366 470 404 508 442" stroke="url(#accent)" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="320" cy="384" r="20" fill="#7C3AED"/>
+  <circle cx="416" cy="420" r="20" fill="#DB2777"/>
+  <circle cx="600" cy="312" r="58" fill="#7C3AED" fill-opacity="0.12"/>
+  <circle cx="760" cy="288" r="58" fill="#F97316" fill-opacity="0.14"/>
+  <path d="M712 288l36 36 68-68" stroke="#16A34A" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="590" y="406" width="280" height="18" rx="9" fill="#CBD5E1"/>
+  <rect x="590" y="440" width="210" height="14" rx="7" fill="#CBD5E1"/>
+</svg>
